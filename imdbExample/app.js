@@ -12,7 +12,7 @@ app.use(function(req, res, next){
     res.locals.connection = mysql.createConnection({
         host     : 'localhost',
         user     : 'root',
-        password : '',
+        password : '63418010',
         database : 'db_imdb'
     });
     res.locals.connection.connect();
@@ -28,6 +28,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/new',indexRouter)
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
