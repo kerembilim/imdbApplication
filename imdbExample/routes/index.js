@@ -10,12 +10,20 @@ router.get('/', function(req, res, next) {
         });
 
 });
-router.post('/new', function(req, res, next) {
+router.post('/update', function(req, res, next) {
+
+    res.locals.connection.query("UPDATE task SET title='title bu mu oldu' WHERE id=3", function (error, results, Title) {
+        if (error) throw error;
+        res.json(req.body.title);
+    });
+
+});
+router.post('/create', function(req, res, next) {
     //res.json(records);
     var records = [
-        [req.body.id,req.body.title, req.body.year,req.body.url,req.body.imageurl]
+        [req.body.title, req.body.year,req.body.url,req.body.imageurl]
     ];
-    res.locals.connection.query("INSERT INTO task (id,title,year,url,imageurl) VALUES ?", [records], function (err, result, fields) {
+    res.locals.connection.query("INSERT INTO task (title,year,url,imageurl) VALUES ?", [records], function (err, result, fields) {
         // if any error while executing above query, throw error
         if (err) throw err;
         // if there is no error, you have the result
