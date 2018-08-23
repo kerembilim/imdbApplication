@@ -1,22 +1,22 @@
 var express = require('express');
 var router = express.Router();
-
-/* GET home page. */
 router.get('/', function(req, res, next) {
-
         res.locals.connection.query('SELECT * from task', function (error, results, Title) {
             if (error) throw error;
             res.json(results);
         });
-
 });
 router.post('/update', function(req, res, next) {
-
     res.locals.connection.query("UPDATE task SET title=?,year=?,url=?,imageurl=? WHERE id=?",[req.body.title,req.body.year,req.body.url,req.body.imageurl,req.body.id], function (error, results, Title) {
         if (error) throw error;
         res.json(req.body.title);
     });
-
+});
+router.post('/delete', function(req, res, next) {
+    res.locals.connection.query("DELETE FROM task WHERE id = ?",[req.body.id], function (error, results, Title) {
+        if (error) throw error;
+        res.json(req.body.title);
+    });
 });
 router.post('/create', function(req, res, next) {
     //res.json(records);
@@ -30,10 +30,8 @@ router.post('/create', function(req, res, next) {
         console.log(result);
         console.log("Number of rows affected : " + result.affectedRows);
         console.log("Number of records affected with warning : " + result.warningCount);
-
     });
     res.json('basarili');
-
 });
 
 module.exports = router;

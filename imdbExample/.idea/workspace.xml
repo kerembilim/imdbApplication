@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="00462306-f0ee-4226-ac21-e736319f7a6c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
@@ -22,8 +21,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+            <state relative-caret-position="85">
+              <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -32,10 +31,13 @@
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="e#128#305#0" />
+                <element signature="e#356#655#0" />
+                <element signature="e#685#965#0" />
                 <element signature="e#353#998#0" />
+                <element signature="e#622#967#0" />
               </folding>
             </state>
           </provider>
@@ -134,7 +136,7 @@
       <updated>1534873292396</updated>
       <workItem from="1534873293689" duration="3436000" />
       <workItem from="1534923316849" duration="2575000" />
-      <workItem from="1534925954994" duration="5149000" />
+      <workItem from="1534925954994" duration="7006000" />
     </task>
     <task id="LOCAL-00001" summary="[ADD]Added post method.">
       <created>1534926049144</created>
@@ -143,15 +145,28 @@
       <option name="project" value="LOCAL" />
       <updated>1534926049144</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="[ADD]Added update method.">
+      <created>1534977945718</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1534977945718</updated>
+    </task>
+    <task id="LOCAL-00003" summary="[FİX]Fixed update method.">
+      <created>1535022401478</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1535022401478</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11160000" />
+    <option name="totallyTimeSpent" value="13017000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.24983476" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -181,7 +196,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[ADD]Added post method." />
-    <option name="LAST_COMMIT_MESSAGE" value="[ADD]Added post method." />
+    <MESSAGE value="[ADD]Added update method." />
+    <MESSAGE value="[FİX]Fixed update method." />
+    <option name="LAST_COMMIT_MESSAGE" value="[FİX]Fixed update method." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app.js">
@@ -197,7 +214,10 @@
           <caret line="21" column="28" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
           <folding>
             <element signature="e#128#305#0" />
+            <element signature="e#356#655#0" />
+            <element signature="e#685#965#0" />
             <element signature="e#353#998#0" />
+            <element signature="e#622#967#0" />
           </folding>
         </state>
       </provider>
@@ -219,18 +239,21 @@
     <entry file="file://$PROJECT_DIR$/routes/post.js" />
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="31" column="31" lean-forward="true" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
+        <state relative-caret-position="85">
+          <caret line="32" column="31" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
           <folding>
             <element signature="e#128#305#0" />
+            <element signature="e#356#655#0" />
+            <element signature="e#685#965#0" />
             <element signature="e#353#998#0" />
+            <element signature="e#622#967#0" />
           </folding>
         </state>
       </provider>

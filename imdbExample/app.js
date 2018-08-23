@@ -30,6 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/create',indexRouter);
 app.use('/update',indexRouter);
+app.use('/delete',indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
