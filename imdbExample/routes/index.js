@@ -1,11 +1,22 @@
 var express = require('express');
 var router = express.Router();
+
 router.get('/', function(req, res, next) {
-        res.locals.connection.query('SELECT * from task', function (error, results, Title) {
+    res.locals.connection.query('SELECT * from task', function (error, results, Title) {
             if (error) throw error;
             res.json(results);
         });
 });
+router.get('/:Id', function(req, res) {
+    //res.json(req.params.Id);
+    res.locals.connection.query('SELECT * from task WHERE id = ?',[req.params.Id], function (error, results, Title) {
+        if (error) throw error;
+        res.json(results);
+    });
+});
+
+// GET /p/5
+// tagId is set to 5
 router.post('/update', function(req, res, next) {
     res.locals.connection.query("UPDATE task SET title=?,year=?,url=?,imageurl=? WHERE id=?",[req.body.title,req.body.year,req.body.url,req.body.imageurl,req.body.id], function (error, results, Title) {
         if (error) throw error;
