@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 });
 router.post('/update', function(req, res, next) {
 
-    res.locals.connection.query("UPDATE task SET title='title bu mu oldu' WHERE id=3", function (error, results, Title) {
+    res.locals.connection.query("UPDATE task SET title=?,year=?,url=?,imageurl=? WHERE id=?",[req.body.title,req.body.year,req.body.url,req.body.imageurl,req.body.id], function (error, results, Title) {
         if (error) throw error;
         res.json(req.body.title);
     });
