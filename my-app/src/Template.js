@@ -7,6 +7,7 @@ import 'antd/dist/antd.css';
 import { AutoComplete } from 'antd';
 import { Layout, Menu } from 'antd';
 import PostList from './PostList';
+import Create from './Create';
 const { Header, Content, Footer } = Layout;
 function onSelect(value) {
     console.log('onSelect', value);
@@ -68,7 +69,7 @@ class Template extends Component {
             <Switch>
                         <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
                             <Route exact path="/" component={PostList}/>
-                           {/* <Route exact path={"/"} component={PostDetail}/>*/}
+                            <Route exact path={"/create"} component={Create}/>
                         </div>
             </Switch>
         </Router>
