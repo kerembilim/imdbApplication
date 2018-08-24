@@ -1,11 +1,10 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch,Link} from "react-router-dom";
 import {bindActionCreators} from "redux";
 import {postAction} from "./actions/PostAction";
 import {connect} from "react-redux";
 import 'antd/dist/antd.css';
-import { AutoComplete } from 'antd';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu,AutoComplete,Button} from 'antd';
 import PostList from './PostList';
 import Create from './Create';
 const { Header, Content, Footer } = Layout;
@@ -41,49 +40,31 @@ class Template extends Component {
 
         return(
             <div>
-                <Layout>
-                    <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
-                        <div className="logo" />
-                        <Menu
-                            theme="dark"
-                            mode="horizontal"
-
-                            style={{ lineHeight: '64px' }}
-                        >
-                            <Menu.Item key="1">nav 1</Menu.Item>
-                            <Menu.Item key="2">nav 2</Menu.Item>
-                            <Menu.Item key="3">nav 3</Menu.Item>
-
-                            <AutoComplete
-                                dataSource={dataSource}
-                                style={{ width: 200 }}
-                                onSelect={onSelect}
-                                onSearch={this.handleSearch}
-                                placeholder="input here"
-                            />
-
-                        </Menu>
-                    </Header>
-                    <Content style={{ padding: '0 50px', marginTop: 64 }}>
-        <Router>
-            <Switch>
-                        <div style={{ background: '#fff', padding: 24, minHeight: 380 }}>
+                <Router>
+                    <div style ={ { backgroundImage: "url('http://nonstopwebsites.co.uk/wp-content/uploads/2017/12/bg-10-full.jpg')" ,backgroundSize:'percentage',borderRadius:15} }>
+                        <Switch>
                             <Route exact path="/" component={PostList}/>
                             <Route exact path={"/create"} component={Create}/>
-                        </div>
-            </Switch>
-        </Router>
-                    </Content>
-                    <Footer style={{ textAlign: 'center' }}>
-                        imdb aplication
-                    </Footer>
-                </Layout>
-
+                        </Switch>
+                    </div>
+                </Router>
             </div>
 
         );
 }
 }
+const OldSchoolMenuLink = ({ label, to, activeOnlyWhenExact }) => (
+    <Route
+        path={to}
+        exact={activeOnlyWhenExact}
+        children={({ match }) => (
+            <div className={match ? "active" : ""}>
+                {match ? "> " : ""}
+                <Link to={to}>{label}</Link>
+            </div>
+        )}
+    />
+);
 let storeToProps = (store) => {
     return {
         posts: store.posts.posts

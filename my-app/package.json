@@ -6,11 +6,13 @@
     "antd": "^3.8.2",
     "axios": "^0.18.0",
     "react": "^16.4.1",
+    "react-alert": "^4.0.4",
     "react-autocomplete": "^1.8.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+    "react-simplert": "0.0.2",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.5",
     "redux-thunk": "^2.3.0"
