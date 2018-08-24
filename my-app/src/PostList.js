@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from "redux";
 import {postAction} from "./actions/PostAction";
+import {BrowserRouter as Router, Route, Switch,Link} from "react-router-dom";
 import {connect} from "react-redux";
-import {Card} from 'antd';
+import {Card,Icon,Button} from 'antd';
 import 'antd/dist/antd.css';
 const { Meta } = Card;
 class PostList extends Component {
@@ -10,13 +11,19 @@ class PostList extends Component {
         const {postAction} = this.props;
         postAction();
     }
+
+    onclick(e)
+    {
+        console.log(e)
+    }
     render() {
         const { posts } = this.props;
         return(
             <div style={{ padding:30, paddingLeft:100}} >
                 {posts.map((postIndex,index) =>
-                                <span key={index} style={{height:'30',width:400,padding:5}}>
-                                    <a  style={{fontSize:17,color:'green'}} key={postIndex.ID} href={postIndex.url}>
+
+                                <span key={index} style={{height:'30',width:40,padding:5}}>
+
                                     <Card
                                         hoverable
                                         style={{ width: 240 }}
@@ -25,8 +32,21 @@ class PostList extends Component {
                                             title={postIndex.title}
                                             description={postIndex.year}
                                         />
+                                        <div style={{paddingTop:10}}>
+                                            <span>
+                                                <Button ><Link to="/update"><Icon style={{fontSize:30}} type="edit" /></Link></Button>
+                                            </span>
+                                            <span style={{paddingLeft:2}}>
+                                                <Button  onClick={this.onclick(postIndex.ID)}><Icon style={{fontSize:30}} type="delete" /></Button>
+                                            </span>
+                                            <span style={{paddingLeft:2}}>
+                                                <Button> <a key={postIndex.ID} href={postIndex.url}><Icon style={{fontSize:30}}type="arrow-right" /></a></Button>
+                                            </span>
+
+                                        </div>
+
                                     </Card>
-                                    </a>
+
                                 </span>
                 )}
             </div>
