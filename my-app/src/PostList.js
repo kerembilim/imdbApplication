@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from "redux";
 import {postAction} from "./actions/PostAction";
-import {BrowserRouter as Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {Card,Icon,Button,Input} from 'antd';
 import 'antd/dist/antd.css';
@@ -51,31 +50,29 @@ class PostList extends Component {
                 <Input  value={this.state.search} onChange={this.updateSearch.bind(this)} placeholder="Movie Title" />
                 {filteredposts.map((res) =>
                     <div key={res.ID} style={{height:'30',width:40,padding:5}}>
+                        <Card
+                            hoverable
+                            style={{ width: 240 }}
+                            cover={<img alt={res.title+'image'}  src={res.imageurl} />}>
+                            <Meta
+                                title={res.title}
+                                description={res.year}
+                            />
+                            <div style={{paddingTop:10}}>
+                                <span>
+                                    <Button onClick={()=>{this.navigate('Update/',res.ID)}}><Icon style={{fontSize:30}} type="edit" /></Button>
+                                </span>
+                                <span style={{paddingLeft:2}}>
+                                    <Button onClick={() => this.onclick(res.ID)}><Icon style={{fontSize:30}} type="delete" /></Button>
+                                </span>
+                                <span style={{paddingLeft:2}}>
+                                    <Button > <a key={res.ID} href={res.url}><Icon style={{fontSize:30}}type="arrow-right" /></a></Button>
+                                </span>
+                            </div>
 
-                                    <Card
-                                        hoverable
-                                        style={{ width: 240 }}
-                                        cover={<img alt={res.title+'image'}  src={res.imageurl} />}>
-                                        <Meta
-                                            title={res.title}
-                                            description={res.year}
-                                        />
-                                        <div style={{paddingTop:10}}>
-                                            <span>
-                                                <Button onClick={()=>{this.navigate('Update/',res.ID)}}><Icon style={{fontSize:30}} type="edit" /></Button>
-                                            </span>
-                                            <span style={{paddingLeft:2}}>
-                                                <Button onClick={() => this.onclick(res.ID)}><Icon style={{fontSize:30}} type="delete" /></Button>
-                                            </span>
-                                            <span style={{paddingLeft:2}}>
-                                                <Button > <a key={res.ID} href={res.url}><Icon style={{fontSize:30}}type="arrow-right" /></a></Button>
-                                            </span>
+                        </Card>
 
-                                        </div>
-
-                                    </Card>
-
-                                </div>)}
+                    </div>)}
 
             </div>
         )
@@ -91,5 +88,4 @@ const dispatchToProps = (dispatch) => {
     return bindActionCreators({postAction: postAction}, dispatch);
 
 };
-
 export default connect(storeToProps, dispatchToProps)(PostList);
