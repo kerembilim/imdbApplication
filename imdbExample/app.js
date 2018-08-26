@@ -12,7 +12,7 @@ app.use(function(req, res, next){
     res.locals.connection = mysql.createConnection({
         host     : 'localhost',
         user     : 'root',
-        password : '63418010',
+        password : '',
         database : 'db_imdb'
     });
     res.locals.connection.connect();
