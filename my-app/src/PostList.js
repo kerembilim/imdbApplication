@@ -1,16 +1,26 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from "redux";
 import {postAction} from "./actions/PostAction";
-import {BrowserRouter as Router, Route, Switch,Link} from "react-router-dom";
+import {BrowserRouter as Link} from "react-router-dom";
 import {connect} from "react-redux";
-import {Card,Icon,Button} from 'antd';
+import {Card,Icon,Button,Input} from 'antd';
 import 'antd/dist/antd.css';
 import axios from "axios/index";
 const { Meta } = Card;
 class PostList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            search:''
+        };
+    }
     componentDidMount(){
         const {postAction} = this.props;
         postAction();
+    }
+    updateSearch(event)
+    {
+        this.setState({search:event.target.value.substr(0,20)})
     }
 
     onclick(id)
@@ -29,37 +39,40 @@ class PostList extends Component {
     }
     render() {
         const { posts } = this.props;
+        let filteredposts=posts.filter((post) =>{
+            return post.title.toLowerCase().indexOf(this.state.search) !==-1;
+        } );
         return(
             <div style={{ padding:30, paddingLeft:100}} >
-                {posts.map((postIndex,index) =>
-
-                                <span key={index} style={{height:'30',width:40,padding:5}}>
+                <Input  value={this.state.search} onChange={this.updateSearch.bind(this)} placeholder="Movie Title" />
+                {filteredposts.map((res) =>
+                    <span key={res.ID} style={{height:'30',width:40,padding:5}}>
 
                                     <Card
                                         hoverable
                                         style={{ width: 240 }}
-                                        cover={<img alt={postIndex.title+'image'}  src={postIndex.imageurl} />}>
+                                        cover={<img alt={res.title+'image'}  src={res.imageurl} />}>
                                         <Meta
-                                            title={postIndex.title}
-                                            description={postIndex.year}
+                                            title={res.title}
+                                            description={res.year}
                                         />
                                         <div style={{paddingTop:10}}>
                                             <span>
-                                                <Button ><Link to={`/update/${postIndex.ID}`}><Icon style={{fontSize:30}} type="edit" /></Link></Button>
+                                                <Button ><Link to={`/update/${res.ID}`}><Icon style={{fontSize:30}} type="edit" /></Link></Button>
                                             </span>
                                             <span style={{paddingLeft:2}}>
-                                                <Button onClick={() => this.onclick(postIndex.ID)}><Icon style={{fontSize:30}} type="delete" /></Button>
+                                                <Button onClick={() => this.onclick(res.ID)}><Icon style={{fontSize:30}} type="delete" /></Button>
                                             </span>
                                             <span style={{paddingLeft:2}}>
-                                                <Button > <a key={postIndex.ID} href={postIndex.url}><Icon style={{fontSize:30}}type="arrow-right" /></a></Button>
+                                                <Button > <a key={res.ID} href={res.url}><Icon style={{fontSize:30}}type="arrow-right" /></a></Button>
                                             </span>
 
                                         </div>
 
                                     </Card>
 
-                                </span>
-                )}
+                                </span>)}
+
             </div>
         )
     }

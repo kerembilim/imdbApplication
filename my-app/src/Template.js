@@ -4,60 +4,18 @@ import {bindActionCreators} from "redux";
 import {postAction} from "./actions/PostAction";
 import {connect} from "react-redux";
 import 'antd/dist/antd.css';
-import { Icon,AutoComplete,Button} from 'antd';
+import {Icon} from 'antd';
 import PostList from './PostList';
 import Update from './Update';
 import Create from './Create';
-
-function onSelect(value) {
-    console.log('onSelect', value);
-}
 class Template extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            title:[],
-        };
-    }
     componentWillMount(){
         const {postAction} = this.props;
         postAction();
-        this.autoComplete();
 
     }
-    state = {
-        dataSource: [],
-    }
-    autoComplete()
-    {
-        const { posts } = this.props;
-        if (posts.length==0)
-        {
-            console.log('postlar bos');
-        }
-        else
-            posts.map(res=>this.handleSearch(res.title))
-
-    }
-    onSelect(value) {
-        console.log('onSelect', value);
-    }
-    handleSearch (value) {
-        console.log(value)
-    }
-    getLenght(d)
-    {
-        const { posts } = this.props;
-       posts.map(res=>d.push(res.title));
-    }
-
     render()
     {
-
-        var dataSource = [];
-        this.getLenght(dataSource);
-        console.log(dataSource);
-
         return(
             <div style={{backgroundColor:'black'}}>
                     <div>
@@ -66,13 +24,6 @@ class Template extends Component {
                                 <div>
                                     <Link to="/"><Icon style={{fontSize:30,color:'black',padding:15}} type="home" /></Link>
                                     <Link to="/create"><Icon style={{fontSize:30,color:'black',padding:15}} type="file-add" /></Link>
-                                        <AutoComplete
-                                            dataSource={dataSource}
-                                            style={{ width: 200 }}
-                                            onSelect={onSelect}
-                                            onSearch={this.handleSearch}
-                                            placeholder="input here"
-                                        />
                                   <Switch>
                                     <Route exact path="/" component={PostList}/>
                                     <Route exact path={"/create"} component={Create}/>
@@ -80,9 +31,8 @@ class Template extends Component {
                                  </Switch>
                                 </div>
                             </Router>
-                            {/*autocomplete eklenecek*/}
                         </div>
-                        
+
                     </div>
             </div>
         );
