@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="00462306-f0ee-4226-ac21-e736319f7a6c" name="Default" comment="[ADD]Created react project.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../my-app/src/Create.js" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/Create.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../my-app/src/PostList.js" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/PostList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../my-app/src/Template.js" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/Template.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../my-app/src/Update.js" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/Update.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../my-app/src/actions/PostAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/../my-app/src/actions/PostAction.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -131,7 +127,7 @@
       <workItem from="1535048139360" duration="1528000" />
       <workItem from="1535094856906" duration="2707000" />
       <workItem from="1535145049567" duration="1228000" />
-      <workItem from="1535270370999" duration="2271000" />
+      <workItem from="1535270370999" duration="2901000" />
     </task>
     <task id="LOCAL-00001" summary="[ADD]Added post method.">
       <created>1534926049144</created>
@@ -179,10 +175,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25440000" />
+    <option name="totallyTimeSpent" value="26070000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24983476" />
