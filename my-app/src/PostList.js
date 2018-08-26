@@ -18,6 +18,10 @@ class PostList extends Component {
         const {postAction} = this.props;
         postAction();
     }
+    navigate(Location,id)
+    {
+        this.props.history.push(Location+id);
+    }
     updateSearch(event)
     {
         this.setState({search:event.target.value.substr(0,20)})
@@ -46,7 +50,7 @@ class PostList extends Component {
             <div style={{ padding:30, paddingLeft:100}} >
                 <Input  value={this.state.search} onChange={this.updateSearch.bind(this)} placeholder="Movie Title" />
                 {filteredposts.map((res) =>
-                    <span key={res.ID} style={{height:'30',width:40,padding:5}}>
+                    <div key={res.ID} style={{height:'30',width:40,padding:5}}>
 
                                     <Card
                                         hoverable
@@ -58,7 +62,7 @@ class PostList extends Component {
                                         />
                                         <div style={{paddingTop:10}}>
                                             <span>
-                                                <Button ><Link to={`/update/${res.ID}`}><Icon style={{fontSize:30}} type="edit" /></Link></Button>
+                                                <Button onClick={()=>{this.navigate('Update/',res.ID)}}><Icon style={{fontSize:30}} type="edit" /></Button>
                                             </span>
                                             <span style={{paddingLeft:2}}>
                                                 <Button onClick={() => this.onclick(res.ID)}><Icon style={{fontSize:30}} type="delete" /></Button>
@@ -71,7 +75,7 @@ class PostList extends Component {
 
                                     </Card>
 
-                                </span>)}
+                                </div>)}
 
             </div>
         )
