@@ -5,6 +5,7 @@ import {BrowserRouter as Router, Route, Switch,Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {Card,Icon,Button} from 'antd';
 import 'antd/dist/antd.css';
+import axios from "axios/index";
 const { Meta } = Card;
 class PostList extends Component {
     componentDidMount(){
@@ -12,9 +13,19 @@ class PostList extends Component {
         postAction();
     }
 
-    onclick(e)
+    onclick(id)
     {
-        console.log(e)
+        axios.post('http://localhost:3000/delete', {
+            id: id,
+        })
+            .then(function (response) {
+                console.log(response);
+                window.location.reload();
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
     render() {
         const { posts } = this.props;
@@ -34,13 +45,13 @@ class PostList extends Component {
                                         />
                                         <div style={{paddingTop:10}}>
                                             <span>
-                                                <Button ><Link to="/update"><Icon style={{fontSize:30}} type="edit" /></Link></Button>
+                                                <Button ><Link to={`/update/${postIndex.ID}`}><Icon style={{fontSize:30}} type="edit" /></Link></Button>
                                             </span>
                                             <span style={{paddingLeft:2}}>
-                                                <Button  onClick={this.onclick(postIndex.ID)}><Icon style={{fontSize:30}} type="delete" /></Button>
+                                                <Button onClick={() => this.onclick(postIndex.ID)}><Icon style={{fontSize:30}} type="delete" /></Button>
                                             </span>
                                             <span style={{paddingLeft:2}}>
-                                                <Button> <a key={postIndex.ID} href={postIndex.url}><Icon style={{fontSize:30}}type="arrow-right" /></a></Button>
+                                                <Button > <a key={postIndex.ID} href={postIndex.url}><Icon style={{fontSize:30}}type="arrow-right" /></a></Button>
                                             </span>
 
                                         </div>

@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import 'antd/dist/antd.css';
 import { Layout,Icon, Menu,AutoComplete,Button} from 'antd';
 import PostList from './PostList';
+import Update from './Update';
 import Create from './Create';
 const { Header, Content, Footer } = Layout;
 function onSelect(value) {
@@ -47,6 +48,7 @@ class Template extends Component {
                                   <Switch>
                                     <Route exact path="/" component={PostList}/>
                                     <Route exact path={"/create"} component={Create}/>
+                                    <Route exact path={"/update/:postId"} component={Update}/>
                                  </Switch>
                                 </div>
                             </Router>

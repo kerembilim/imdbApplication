@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Input,Button} from 'antd';
 import axios from "axios/index";
-import Simplert from 'react-simplert'
 class Create extends Component {
     constructor(props) {
         super(props);
@@ -24,12 +23,12 @@ class Create extends Component {
             imageurl: this.state.imageUrl
         })
             .then(function (response) {
-                console.log(this.state.title)
+                window.alert('basarili');
             })
             .catch(function (error) {
                 console.log(error);
             });
-        this.setState({alert:true});
+
 
     }
     onChangeTitle = (e) => {
@@ -79,12 +78,7 @@ class Create extends Component {
 
                     >Submit
                     </Button>
-                    <Simplert
-                    showSimplert={ this.state.alert}
-                    type={ 'success' }
-                    title={ 'Created Succesfully' }
-                    message={ '' }
-                />
+
                 </div>
 
             </div>
